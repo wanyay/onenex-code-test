@@ -1,0 +1,1587 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Movie API</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost:8000";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.11.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.11.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-login">
+                                <a href="#endpoints-POSTapi-login">POST api/login</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-comment--movie_id-">
+                                <a href="#endpoints-POSTapi-comment--movie_id-">POST api/comment/{movie_id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-movie">
+                                <a href="#endpoints-GETapi-movie">GET api/movie</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-movie--id-">
+                                <a href="#endpoints-GETapi-movie--id-">GET api/movie/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-movie">
+                                <a href="#endpoints-POSTapi-movie">POST api/movie</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-movie--id-">
+                                <a href="#endpoints-PUTapi-movie--id-">PUT api/movie/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-movie--id-">
+                                <a href="#endpoints-DELETEapi-movie--id-">DELETE api/movie/{id}</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: January 10, 2023</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>code testing</p>
+<aside>
+    <strong>Base URL</strong>: <code>http://localhost:8000</code>
+</aside>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-POSTapi-login">POST api/login</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"aidan35@example.net\",
+    \"password\": \"ut\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "aidan35@example.net",
+    "password": "ut"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-login">
+</span>
+<span id="execution-results-POSTapi-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-login" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-login"></code></pre>
+</span>
+<form id="form-POSTapi-login" data-method="POST"
+      data-path="api/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-login"
+                    onclick="tryItOut('POSTapi-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-login"
+                    onclick="cancelTryOut('POSTapi-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/login</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="POSTapi-login"
+               value="aidan35@example.net"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>aidan35@example.net</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="password"                data-endpoint="POSTapi-login"
+               value="ut"
+               data-component="body">
+    <br>
+<p>Example: <code>ut</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-POSTapi-comment--movie_id-">POST api/comment/{movie_id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-comment--movie_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/comment/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"comment\": \"non\",
+    \"email\": \"dgorczany@example.com\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/comment/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "comment": "non",
+    "email": "dgorczany@example.com"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-comment--movie_id-">
+</span>
+<span id="execution-results-POSTapi-comment--movie_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-comment--movie_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-comment--movie_id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-comment--movie_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-comment--movie_id-"></code></pre>
+</span>
+<form id="form-POSTapi-comment--movie_id-" data-method="POST"
+      data-path="api/comment/{movie_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-comment--movie_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-comment--movie_id-"
+                    onclick="tryItOut('POSTapi-comment--movie_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-comment--movie_id-"
+                    onclick="cancelTryOut('POSTapi-comment--movie_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-comment--movie_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/comment/{movie_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-comment--movie_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-comment--movie_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>movie_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="movie_id"                data-endpoint="POSTapi-comment--movie_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the movie. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comment</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="comment"                data-endpoint="POSTapi-comment--movie_id-"
+               value="non"
+               data-component="body">
+    <br>
+<p>Example: <code>non</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="POSTapi-comment--movie_id-"
+               value="dgorczany@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>dgorczany@example.com</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-movie">GET api/movie</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-movie">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/movie" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/movie"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-movie">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: true,
+    &quot;code&quot;: 200,
+    &quot;meta&quot;: {
+        &quot;method&quot;: &quot;GET&quot;,
+        &quot;endpoint&quot;: &quot;/api/movie&quot;,
+        &quot;limit&quot;: 30,
+        &quot;offset&quot;: 0,
+        &quot;total&quot;: 30
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Garrison Hamill MD&quot;,
+            &quot;summary&quot;: &quot;Voluptatem reiciendis facere qui harum esse voluptatum voluptatem praesentium est ipsum ut sed dolor odio veniam quo ea nam nobis voluptas facere beatae est modi corporis quibusdam ullam vel dolore repellendus molestias voluptatem voluptatem dolores voluptatum et odit amet voluptates culpa voluptatem veniam dolor vitae id mollitia qui aspernatur repudiandae et quasi rerum fugiat sequi quo voluptate mollitia officia modi aspernatur et suscipit deserunt.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Drama&quot;,
+            &quot;author&quot;: &quot;Janie Cremin&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 8,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Evert Greenholt&quot;,
+            &quot;summary&quot;: &quot;Quo doloribus voluptatem sunt velit dignissimos saepe necessitatibus harum exercitationem perspiciatis consequuntur aut quia deserunt nam perferendis praesentium modi quo aut et quas et ducimus quisquam sint doloremque deleniti aliquid id eum aut officia accusantium asperiores aut qui ea ullam sapiente eum qui dicta ut nulla ratione ut provident et dolor veniam nisi similique.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Prof. Lonzo Nader DVM&quot;,
+            &quot;tags&quot;: &quot;drama&quot;,
+            &quot;imdb_rate&quot;: 1,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;Dr. Wellington Corwin&quot;,
+            &quot;summary&quot;: &quot;Dolorem delectus architecto ut qui vero magnam voluptas saepe iure quidem temporibus dignissimos pariatur blanditiis neque officiis nulla est ratione eos soluta aliquid aut eos eaque nemo cum cumque odit earum nulla earum iste quia exercitationem cumque ut fugiat inventore magni consequatur sit animi accusamus corrupti inventore labore et veritatis quis porro nam aut atque numquam autem tempore suscipit aspernatur officia aut aut.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Prof. Kylee Weimann&quot;,
+            &quot;tags&quot;: &quot;sci-fi&quot;,
+            &quot;imdb_rate&quot;: 7,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;Meta Corkery&quot;,
+            &quot;summary&quot;: &quot;Doloremque accusantium fuga rerum fugit quo tempore ea nesciunt ipsa sit aut aut maiores velit tempore aut sapiente sed eius debitis numquam qui et tenetur quia voluptatibus voluptatem non reiciendis non odit est.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Science fiction&quot;,
+            &quot;author&quot;: &quot;Prof. Richard Treutel Sr.&quot;,
+            &quot;tags&quot;: &quot;sci-fi&quot;,
+            &quot;imdb_rate&quot;: 2,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;title&quot;: &quot;Fredy Cremin&quot;,
+            &quot;summary&quot;: &quot;Impedit quis voluptatem neque autem quia quae ut sit minus dolores molestiae fuga distinctio sit hic sint possimus et est ullam eum sint quis eum veniam ut eius aperiam ipsa ab facilis est consequatur praesentium recusandae molestiae deleniti ad vero est.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Mr. Brycen Roob&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 2,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;Nikolas Grant IV&quot;,
+            &quot;summary&quot;: &quot;Nihil quia molestiae quia modi odio est est magnam qui ut pariatur eligendi cum dicta necessitatibus praesentium itaque amet assumenda et aut velit sequi inventore corrupti soluta est perspiciatis ut fugit omnis debitis voluptas in doloribus eum illum quisquam suscipit sit quos in natus sed perferendis et omnis eligendi omnis ea voluptatibus beatae harum eveniet voluptatem ab sit neque eveniet facilis qui facilis ducimus perspiciatis voluptas laudantium non aut sequi.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Mr. Buster Braun DVM&quot;,
+            &quot;tags&quot;: &quot;adventure&quot;,
+            &quot;imdb_rate&quot;: 8,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;Prof. Everardo Bednar&quot;,
+            &quot;summary&quot;: &quot;Ullam eum ullam explicabo quo ipsam est neque voluptatem ut quia praesentium esse adipisci velit culpa quidem illo hic asperiores neque nam illo voluptatem enim omnis molestias esse dolorum illum nisi nesciunt mollitia deserunt voluptatem occaecati ex ipsa ut omnis qui.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Mrs. Rosina Bradtke DVM&quot;,
+            &quot;tags&quot;: &quot;sci-fi&quot;,
+            &quot;imdb_rate&quot;: 3,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;Nadia Wyman&quot;,
+            &quot;summary&quot;: &quot;In fuga omnis autem quas quia pariatur commodi quia vero fugit laborum veniam molestiae et est vel reiciendis quis rerum sunt unde tenetur delectus soluta error qui omnis cumque cumque dolorem quaerat et est aut.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Itzel Pacocha PhD&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 5,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;Cordia Gleichner&quot;,
+            &quot;summary&quot;: &quot;Voluptatem rerum autem non similique ut illo nisi iure vel deserunt similique aliquid neque nihil voluptatem vel sit qui qui voluptate iusto autem omnis illum impedit accusamus delectus eligendi doloremque corrupti dignissimos tenetur qui dignissimos ipsum a sapiente quasi dignissimos distinctio iusto debitis accusamus quasi provident iure velit vel labore voluptate sapiente est maiores ut non error omnis deleniti placeat modi excepturi totam voluptatem.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Prof. Bonnie Gulgowski DVM&quot;,
+            &quot;tags&quot;: &quot;drama&quot;,
+            &quot;imdb_rate&quot;: 3,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;Kian Jacobi&quot;,
+            &quot;summary&quot;: &quot;Nostrum voluptates eos soluta non quis facilis fugiat iure dolores velit veniam tempore iusto quis ratione facilis est dolorum earum facilis consequatur qui sunt corporis nihil repellat alias et mollitia rem ex et assumenda voluptatibus maxime et animi possimus consequatur eum necessitatibus aut ea veritatis sint.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Gilberto Harvey&quot;,
+            &quot;tags&quot;: &quot;adventure&quot;,
+            &quot;imdb_rate&quot;: 3,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;title&quot;: &quot;Dr. Ayana Kiehn Sr.&quot;,
+            &quot;summary&quot;: &quot;Iure dolor laborum sequi omnis quis eos cupiditate enim accusamus libero alias natus facere molestiae sit soluta voluptatem voluptate ratione omnis magnam et sequi doloremque tempora perspiciatis ut officia nobis quam sint quis qui alias perferendis ut dolores aut magni minima laudantium non qui.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Glenda Osinski MD&quot;,
+            &quot;tags&quot;: &quot;adventure&quot;,
+            &quot;imdb_rate&quot;: 8,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;title&quot;: &quot;Ms. Cordia Ryan&quot;,
+            &quot;summary&quot;: &quot;Ea adipisci illum sit distinctio eum in cum officiis quibusdam blanditiis repellat et id corrupti repudiandae dolorem sit itaque voluptatem sed consectetur quae corporis qui distinctio saepe quasi debitis facilis dolore recusandae est et et nostrum est.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Science fiction&quot;,
+            &quot;author&quot;: &quot;Ms. Yadira Russel&quot;,
+            &quot;tags&quot;: &quot;drama&quot;,
+            &quot;imdb_rate&quot;: 9,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;title&quot;: &quot;Brandi Bechtelar&quot;,
+            &quot;summary&quot;: &quot;Velit ullam optio id qui voluptatibus labore aut nihil recusandae ex dolores ab consequuntur quo enim qui ducimus eum doloremque neque ut et beatae praesentium ut distinctio totam nobis accusantium velit dolor accusantium officiis omnis.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Drama&quot;,
+            &quot;author&quot;: &quot;Dr. Howard Jast DDS&quot;,
+            &quot;tags&quot;: &quot;adventure&quot;,
+            &quot;imdb_rate&quot;: 8,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;title&quot;: &quot;Christy Wisozk&quot;,
+            &quot;summary&quot;: &quot;Quidem sit similique sequi natus cupiditate occaecati iure ab accusantium excepturi cupiditate eum molestias ea ad laborum enim ab est totam repudiandae consequuntur tempora aut possimus nihil reiciendis ea non voluptas veritatis sed nemo quos omnis sit porro pariatur distinctio earum placeat illum ipsam in quidem voluptatum voluptatem et deserunt qui omnis vero qui sed distinctio et recusandae reiciendis et quos excepturi.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;George Larkin&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 9,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;title&quot;: &quot;Precious Skiles IV&quot;,
+            &quot;summary&quot;: &quot;Fuga repudiandae pariatur maiores sed quo eos illum quo nihil consequuntur officiis aliquid distinctio voluptas explicabo sed et soluta quidem fugit aliquam suscipit fugit ducimus animi saepe numquam illum sequi sapiente accusamus soluta incidunt animi pariatur eos eum laborum totam.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Alanna Harris&quot;,
+            &quot;tags&quot;: &quot;adventure&quot;,
+            &quot;imdb_rate&quot;: 4,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;title&quot;: &quot;Dr. Jay Maggio&quot;,
+            &quot;summary&quot;: &quot;Rerum aperiam repellendus nulla mollitia possimus sed veniam quia sed totam facere libero soluta et quia labore sint maiores nam quod fugiat alias eum modi fugit est et quia fugiat aliquam nihil quia qui aliquid maxime officia cupiditate repudiandae aut consectetur dolorum qui minus quod labore ratione.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Drama&quot;,
+            &quot;author&quot;: &quot;Anne Heidenreich&quot;,
+            &quot;tags&quot;: &quot;sci-fi&quot;,
+            &quot;imdb_rate&quot;: 5,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;title&quot;: &quot;D&#039;angelo Shields&quot;,
+            &quot;summary&quot;: &quot;Qui placeat molestias qui occaecati magni numquam est fugiat dolor est ea ut molestiae reprehenderit harum laudantium corrupti quam sint in magni voluptatem assumenda quibusdam dolores nesciunt modi ut voluptatem eos quis tenetur labore possimus eligendi cupiditate et sit voluptatem quo voluptas velit officia harum illo magni eius sequi harum pariatur adipisci similique excepturi.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Drama&quot;,
+            &quot;author&quot;: &quot;Dr. Ryan Swaniawski DVM&quot;,
+            &quot;tags&quot;: &quot;sci-fi&quot;,
+            &quot;imdb_rate&quot;: 4,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;title&quot;: &quot;Herbert Gerhold&quot;,
+            &quot;summary&quot;: &quot;Voluptates nostrum laudantium et debitis tempore animi eum velit voluptate dolorem fugit voluptatem dolore autem exercitationem non aspernatur voluptas non commodi nam optio nostrum sit occaecati nam omnis modi ut quia quis praesentium ipsam.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Science fiction&quot;,
+            &quot;author&quot;: &quot;Ms. Amaya Roberts IV&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 4,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;title&quot;: &quot;Mr. Eldon Schmeler DVM&quot;,
+            &quot;summary&quot;: &quot;Tempore laudantium dolores dignissimos modi quibusdam quos officia sit error ut laborum nihil accusantium delectus quam fugit autem voluptas sit optio eveniet eos nobis corrupti dicta dolor omnis unde ut mollitia deleniti sit fugiat voluptas sed animi error qui sit ab quaerat soluta sequi aliquam non quis in.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Dr. Brooke Walter DVM&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 8,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;title&quot;: &quot;Miss Lucinda Senger Sr.&quot;,
+            &quot;summary&quot;: &quot;Corporis ullam quae aut optio voluptatem qui aut maiores quisquam quidem qui et repellat architecto inventore dolorum labore et nihil consequatur rerum optio voluptatem porro autem maiores reiciendis pariatur voluptas sequi est occaecati sequi adipisci et voluptas harum non itaque qui qui id quis.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Drama&quot;,
+            &quot;author&quot;: &quot;Gage Funk&quot;,
+            &quot;tags&quot;: &quot;adventure&quot;,
+            &quot;imdb_rate&quot;: 4,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 21,
+            &quot;title&quot;: &quot;Dewitt Mitchell&quot;,
+            &quot;summary&quot;: &quot;Nihil natus atque vero et quam eum saepe a sed beatae voluptatibus sequi dolores quis autem sunt dolorem illo rerum ea voluptas labore rerum id dolorum quis odio ducimus dolorem excepturi dolorem corporis dolorum dignissimos quae maxime consectetur quae placeat natus voluptate veniam neque quibusdam sit.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Action&quot;,
+            &quot;author&quot;: &quot;Twila Koss&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 6,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;title&quot;: &quot;Kirsten Cassin&quot;,
+            &quot;summary&quot;: &quot;Enim adipisci sit et ea commodi ipsa laboriosam qui aliquam consequuntur hic eius est eum hic atque ducimus eum voluptatem repellendus tempore nobis sit quam dolor saepe voluptas exercitationem culpa natus rerum ut hic iste exercitationem.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Drama&quot;,
+            &quot;author&quot;: &quot;Yasmeen Lindgren&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 3,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;title&quot;: &quot;Noe Kerluke&quot;,
+            &quot;summary&quot;: &quot;Et et sit at totam dolore quaerat cum voluptatem blanditiis alias quibusdam voluptas aliquam ipsa eaque praesentium sint doloribus reiciendis eum quae pariatur est tempore illo ipsam ut necessitatibus maiores nihil est repudiandae corrupti voluptatum distinctio et ullam veniam inventore dolores eligendi omnis et aut et qui possimus et dolorem et quisquam et consequatur voluptatem iste voluptatum cupiditate.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Drama&quot;,
+            &quot;author&quot;: &quot;Jordy Miller&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 1,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 24,
+            &quot;title&quot;: &quot;Lizzie Hansen&quot;,
+            &quot;summary&quot;: &quot;Vitae ipsum porro ut exercitationem rerum doloribus qui aut eveniet commodi ut dolor aut molestiae placeat eius dolor earum nulla voluptatum nisi vero adipisci eum velit perferendis veritatis omnis deleniti enim in dignissimos.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Jon Durgan&quot;,
+            &quot;tags&quot;: &quot;sci-fi&quot;,
+            &quot;imdb_rate&quot;: 4,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;title&quot;: &quot;Dr. Jarrett Walker&quot;,
+            &quot;summary&quot;: &quot;Ipsa tempora ex itaque beatae tenetur est enim rerum sunt enim eaque tenetur rerum dolores maiores accusantium quas doloribus nisi eaque dolorem iste at non illo praesentium ratione magni impedit minus officiis nemo id delectus laboriosam ut veniam exercitationem ipsa velit tenetur et eligendi ipsum similique optio qui ratione nemo voluptatem voluptatem repellat praesentium tempore a ea earum iste sint impedit iste veritatis laboriosam et quod sit et.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Jerad Schinner&quot;,
+            &quot;tags&quot;: &quot;drama&quot;,
+            &quot;imdb_rate&quot;: 7,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 26,
+            &quot;title&quot;: &quot;Dr. Alice Ernser&quot;,
+            &quot;summary&quot;: &quot;Nemo optio soluta incidunt omnis veritatis totam fugit quas sunt aliquid sapiente harum molestias quisquam ipsum accusamus accusamus esse excepturi sint maxime sed illum aut consequatur ab quibusdam pariatur est veniam doloremque rerum voluptas labore voluptates quo ratione voluptatem delectus ipsam eum deserunt voluptatem sequi sunt mollitia nemo quo ut corporis sunt suscipit odit fuga voluptatem in animi iusto officia ut reprehenderit voluptatem.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Science fiction&quot;,
+            &quot;author&quot;: &quot;Ally Dooley V&quot;,
+            &quot;tags&quot;: &quot;drama&quot;,
+            &quot;imdb_rate&quot;: 2,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 27,
+            &quot;title&quot;: &quot;Georgianna Keeling&quot;,
+            &quot;summary&quot;: &quot;Est amet rerum excepturi voluptates nisi quo voluptates voluptatem ipsum quaerat laboriosam corporis libero labore consequatur hic quo in dolorem aspernatur corrupti laborum sunt et odio et accusantium mollitia dolorem blanditiis in nostrum excepturi ut quo quidem maxime necessitatibus molestias.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Ollie Trantow&quot;,
+            &quot;tags&quot;: &quot;action&quot;,
+            &quot;imdb_rate&quot;: 3,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 28,
+            &quot;title&quot;: &quot;Lisette Barton&quot;,
+            &quot;summary&quot;: &quot;Id autem delectus laborum et est hic quia aut voluptates vero quae sint nesciunt id reiciendis quisquam iure nostrum fuga et minima sunt reprehenderit voluptas magnam beatae aut quo voluptate est facilis velit hic laborum aut alias.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Science fiction&quot;,
+            &quot;author&quot;: &quot;Justine Johns&quot;,
+            &quot;tags&quot;: &quot;sci-fi&quot;,
+            &quot;imdb_rate&quot;: 3,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 29,
+            &quot;title&quot;: &quot;Eulah Oberbrunner&quot;,
+            &quot;summary&quot;: &quot;Harum saepe odit voluptatum qui pariatur molestiae velit porro autem enim doloribus quo dolores iusto esse sit ipsa eum numquam tempora corrupti quia quia voluptatem voluptates vel in placeat soluta totam qui earum voluptas qui vel consequatur labore architecto sunt occaecati dolorem qui a eum reprehenderit aliquid quidem doloribus omnis vel.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Aurore Swift&quot;,
+            &quot;tags&quot;: &quot;sci-fi&quot;,
+            &quot;imdb_rate&quot;: 1,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        },
+        {
+            &quot;id&quot;: 30,
+            &quot;title&quot;: &quot;Dr. Brent Hickle&quot;,
+            &quot;summary&quot;: &quot;Aut aut in alias dolor vel aut magnam molestias ut nam cupiditate modi voluptas qui numquam et suscipit laboriosam velit voluptatem sequi tenetur odio porro rerum quis quia modi sed voluptatem quibusdam alias repellat minus.&quot;,
+            &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+            &quot;genres&quot;: &quot;Adventure&quot;,
+            &quot;author&quot;: &quot;Jesse Metz&quot;,
+            &quot;tags&quot;: &quot;adventure&quot;,
+            &quot;imdb_rate&quot;: 5,
+            &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+            &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+        }
+    ],
+    &quot;errors&quot;: {},
+    &quot;duration&quot;: 0.157
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-movie" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-movie"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-movie" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-movie" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-movie"></code></pre>
+</span>
+<form id="form-GETapi-movie" data-method="GET"
+      data-path="api/movie"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-movie', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-movie"
+                    onclick="tryItOut('GETapi-movie');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-movie"
+                    onclick="cancelTryOut('GETapi-movie');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-movie" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/movie</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-movie"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-movie"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi-movie--id-">GET api/movie/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-movie--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/movie/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/movie/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-movie--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: true,
+    &quot;code&quot;: 200,
+    &quot;meta&quot;: {
+        &quot;method&quot;: &quot;GET&quot;,
+        &quot;endpoint&quot;: &quot;/api/movie/1&quot;
+    },
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Garrison Hamill MD&quot;,
+        &quot;summary&quot;: &quot;Voluptatem reiciendis facere qui harum esse voluptatum voluptatem praesentium est ipsum ut sed dolor odio veniam quo ea nam nobis voluptas facere beatae est modi corporis quibusdam ullam vel dolore repellendus molestias voluptatem voluptatem dolores voluptatum et odit amet voluptates culpa voluptatem veniam dolor vitae id mollitia qui aspernatur repudiandae et quasi rerum fugiat sequi quo voluptate mollitia officia modi aspernatur et suscipit deserunt.&quot;,
+        &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+        &quot;genres&quot;: &quot;Drama&quot;,
+        &quot;author&quot;: &quot;Janie Cremin&quot;,
+        &quot;tags&quot;: &quot;action&quot;,
+        &quot;imdb_rate&quot;: 8,
+        &quot;comments&quot;: [
+            {
+                &quot;id&quot;: 117,
+                &quot;email&quot;: &quot;tyrel42@lueilwitz.biz&quot;,
+                &quot;comment&quot;: &quot;Dolorem dolorem veniam omnis explicabo sint libero quo minima id ea qui quis officiis explicabo tempora totam.&quot;
+            },
+            {
+                &quot;id&quot;: 140,
+                &quot;email&quot;: &quot;clement22@ruecker.org&quot;,
+                &quot;comment&quot;: &quot;Quae sed consequatur nam architecto corrupti qui minus similique dolorum voluptatem culpa voluptatem necessitatibus ut saepe vitae dolor.&quot;
+            },
+            {
+                &quot;id&quot;: 201,
+                &quot;email&quot;: &quot;yanlay129@gmail.com&quot;,
+                &quot;comment&quot;: &quot;Nice Movie&quot;
+            }
+        ],
+        &quot;related_movies&quot;: [
+            {
+                &quot;id&quot;: 5,
+                &quot;title&quot;: &quot;Fredy Cremin&quot;,
+                &quot;summary&quot;: &quot;Impedit quis voluptatem neque autem quia quae ut sit minus dolores molestiae fuga distinctio sit hic sint possimus et est ullam eum sint quis eum veniam ut eius aperiam ipsa ab facilis est consequatur praesentium recusandae molestiae deleniti ad vero est.&quot;,
+                &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+                &quot;genres&quot;: &quot;Adventure&quot;,
+                &quot;author&quot;: &quot;Mr. Brycen Roob&quot;,
+                &quot;tags&quot;: &quot;action&quot;,
+                &quot;imdb_rate&quot;: 2,
+                &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+                &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+            },
+            {
+                &quot;id&quot;: 8,
+                &quot;title&quot;: &quot;Nadia Wyman&quot;,
+                &quot;summary&quot;: &quot;In fuga omnis autem quas quia pariatur commodi quia vero fugit laborum veniam molestiae et est vel reiciendis quis rerum sunt unde tenetur delectus soluta error qui omnis cumque cumque dolorem quaerat et est aut.&quot;,
+                &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+                &quot;genres&quot;: &quot;Action&quot;,
+                &quot;author&quot;: &quot;Itzel Pacocha PhD&quot;,
+                &quot;tags&quot;: &quot;action&quot;,
+                &quot;imdb_rate&quot;: 5,
+                &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+                &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+            },
+            {
+                &quot;id&quot;: 14,
+                &quot;title&quot;: &quot;Christy Wisozk&quot;,
+                &quot;summary&quot;: &quot;Quidem sit similique sequi natus cupiditate occaecati iure ab accusantium excepturi cupiditate eum molestias ea ad laborum enim ab est totam repudiandae consequuntur tempora aut possimus nihil reiciendis ea non voluptas veritatis sed nemo quos omnis sit porro pariatur distinctio earum placeat illum ipsam in quidem voluptatum voluptatem et deserunt qui omnis vero qui sed distinctio et recusandae reiciendis et quos excepturi.&quot;,
+                &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+                &quot;genres&quot;: &quot;Action&quot;,
+                &quot;author&quot;: &quot;George Larkin&quot;,
+                &quot;tags&quot;: &quot;action&quot;,
+                &quot;imdb_rate&quot;: 9,
+                &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+                &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+            },
+            {
+                &quot;id&quot;: 18,
+                &quot;title&quot;: &quot;Herbert Gerhold&quot;,
+                &quot;summary&quot;: &quot;Voluptates nostrum laudantium et debitis tempore animi eum velit voluptate dolorem fugit voluptatem dolore autem exercitationem non aspernatur voluptas non commodi nam optio nostrum sit occaecati nam omnis modi ut quia quis praesentium ipsam.&quot;,
+                &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+                &quot;genres&quot;: &quot;Science fiction&quot;,
+                &quot;author&quot;: &quot;Ms. Amaya Roberts IV&quot;,
+                &quot;tags&quot;: &quot;action&quot;,
+                &quot;imdb_rate&quot;: 4,
+                &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+                &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+            },
+            {
+                &quot;id&quot;: 19,
+                &quot;title&quot;: &quot;Mr. Eldon Schmeler DVM&quot;,
+                &quot;summary&quot;: &quot;Tempore laudantium dolores dignissimos modi quibusdam quos officia sit error ut laborum nihil accusantium delectus quam fugit autem voluptas sit optio eveniet eos nobis corrupti dicta dolor omnis unde ut mollitia deleniti sit fugiat voluptas sed animi error qui sit ab quaerat soluta sequi aliquam non quis in.&quot;,
+                &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+                &quot;genres&quot;: &quot;Action&quot;,
+                &quot;author&quot;: &quot;Dr. Brooke Walter DVM&quot;,
+                &quot;tags&quot;: &quot;action&quot;,
+                &quot;imdb_rate&quot;: 8,
+                &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+                &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+            },
+            {
+                &quot;id&quot;: 21,
+                &quot;title&quot;: &quot;Dewitt Mitchell&quot;,
+                &quot;summary&quot;: &quot;Nihil natus atque vero et quam eum saepe a sed beatae voluptatibus sequi dolores quis autem sunt dolorem illo rerum ea voluptas labore rerum id dolorum quis odio ducimus dolorem excepturi dolorem corporis dolorum dignissimos quae maxime consectetur quae placeat natus voluptate veniam neque quibusdam sit.&quot;,
+                &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+                &quot;genres&quot;: &quot;Action&quot;,
+                &quot;author&quot;: &quot;Twila Koss&quot;,
+                &quot;tags&quot;: &quot;action&quot;,
+                &quot;imdb_rate&quot;: 6,
+                &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+                &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+            },
+            {
+                &quot;id&quot;: 22,
+                &quot;title&quot;: &quot;Kirsten Cassin&quot;,
+                &quot;summary&quot;: &quot;Enim adipisci sit et ea commodi ipsa laboriosam qui aliquam consequuntur hic eius est eum hic atque ducimus eum voluptatem repellendus tempore nobis sit quam dolor saepe voluptas exercitationem culpa natus rerum ut hic iste exercitationem.&quot;,
+                &quot;cover_image&quot;: &quot;http://localhost:8000/storage/&quot;,
+                &quot;genres&quot;: &quot;Drama&quot;,
+                &quot;author&quot;: &quot;Yasmeen Lindgren&quot;,
+                &quot;tags&quot;: &quot;action&quot;,
+                &quot;imdb_rate&quot;: 3,
+                &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+                &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+            }
+        ],
+        &quot;pdf_download&quot;: &quot;http://localhost:8000/movie/1/pdf-download&quot;,
+        &quot;created_at&quot;: &quot;10-01-2023 17:39:33&quot;,
+        &quot;updated_at&quot;: &quot;10-01-2023 17:39:33&quot;
+    },
+    &quot;errors&quot;: {},
+    &quot;duration&quot;: 0.162
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-movie--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-movie--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-movie--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-movie--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-movie--id-"></code></pre>
+</span>
+<form id="form-GETapi-movie--id-" data-method="GET"
+      data-path="api/movie/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-movie--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-movie--id-"
+                    onclick="tryItOut('GETapi-movie--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-movie--id-"
+                    onclick="cancelTryOut('GETapi-movie--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-movie--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/movie/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-movie--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-movie--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="GETapi-movie--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the movie. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-movie">POST api/movie</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-movie">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/movie" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"zifwubrbxqrrdcazyvtlduwgjlxibsxgwarhmxtvgcpbudmcvzdfuczysatuenxo\",
+    \"summary\": \"dolorem\",
+    \"cover_image\": \"peliwthsqemiiao\",
+    \"genres\": \"et\",
+    \"author\": \"ipsum\",
+    \"tags\": \"illo\",
+    \"imdb_rate\": 1
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/movie"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "zifwubrbxqrrdcazyvtlduwgjlxibsxgwarhmxtvgcpbudmcvzdfuczysatuenxo",
+    "summary": "dolorem",
+    "cover_image": "peliwthsqemiiao",
+    "genres": "et",
+    "author": "ipsum",
+    "tags": "illo",
+    "imdb_rate": 1
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-movie">
+</span>
+<span id="execution-results-POSTapi-movie" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-movie"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-movie" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-movie" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-movie"></code></pre>
+</span>
+<form id="form-POSTapi-movie" data-method="POST"
+      data-path="api/movie"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-movie', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-movie"
+                    onclick="tryItOut('POSTapi-movie');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-movie"
+                    onclick="cancelTryOut('POSTapi-movie');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-movie" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/movie</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-movie"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-movie"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="title"                data-endpoint="POSTapi-movie"
+               value="zifwubrbxqrrdcazyvtlduwgjlxibsxgwarhmxtvgcpbudmcvzdfuczysatuenxo"
+               data-component="body">
+    <br>
+<p>Must not be greater than 100 characters. Must be at least 0 characters. Example: <code>zifwubrbxqrrdcazyvtlduwgjlxibsxgwarhmxtvgcpbudmcvzdfuczysatuenxo</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>summary</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="summary"                data-endpoint="POSTapi-movie"
+               value="dolorem"
+               data-component="body">
+    <br>
+<p>Example: <code>dolorem</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cover_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="cover_image"                data-endpoint="POSTapi-movie"
+               value="peliwthsqemiiao"
+               data-component="body">
+    <br>
+<p>Must not be greater than 10000 characters. Example: <code>peliwthsqemiiao</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>genres</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="genres"                data-endpoint="POSTapi-movie"
+               value="et"
+               data-component="body">
+    <br>
+<p>Example: <code>et</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>author</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="author"                data-endpoint="POSTapi-movie"
+               value="ipsum"
+               data-component="body">
+    <br>
+<p>Example: <code>ipsum</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="tags"                data-endpoint="POSTapi-movie"
+               value="illo"
+               data-component="body">
+    <br>
+<p>Example: <code>illo</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>imdb_rate</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="imdb_rate"                data-endpoint="POSTapi-movie"
+               value="1"
+               data-component="body">
+    <br>
+<p>Example: <code>1</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-PUTapi-movie--id-">PUT api/movie/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-movie--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/api/movie/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/movie/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-movie--id-">
+</span>
+<span id="execution-results-PUTapi-movie--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-movie--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-movie--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-movie--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-movie--id-"></code></pre>
+</span>
+<form id="form-PUTapi-movie--id-" data-method="PUT"
+      data-path="api/movie/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-movie--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-movie--id-"
+                    onclick="tryItOut('PUTapi-movie--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-movie--id-"
+                    onclick="cancelTryOut('PUTapi-movie--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-movie--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/movie/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="PUTapi-movie--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="PUTapi-movie--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="PUTapi-movie--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the movie. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-DELETEapi-movie--id-">DELETE api/movie/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-movie--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/movie/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/movie/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-movie--id-">
+</span>
+<span id="execution-results-DELETEapi-movie--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-movie--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-movie--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-movie--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-movie--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-movie--id-" data-method="DELETE"
+      data-path="api/movie/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-movie--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-movie--id-"
+                    onclick="tryItOut('DELETEapi-movie--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-movie--id-"
+                    onclick="cancelTryOut('DELETEapi-movie--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-movie--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/movie/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="DELETEapi-movie--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="DELETEapi-movie--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="DELETEapi-movie--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the movie. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
